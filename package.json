@@ -18,6 +18,7 @@
     "build": "react-scripts build",
     "test": "CI=true react-scripts test --env=jsdom",
     "cy:run": "cypress run --record --key 75a6dcf1-c9e8-4caf-81de-643915f11823",
+    "precy:ci:test": "cypress install",
     "cy:ci:test": "start-server-and-test start http-get://localhost:3000 cy:run",
     "test:coverage": "npm test -- --coverage",
     "predeploy": "yarn build",
