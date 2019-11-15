@@ -11,11 +11,9 @@ script:
   - npm run cy:ci:test
   - npm run build
 deploy:
-  provider: pages:git
-  edge: true
+  provider: pages
   skip_cleanup: true
   token: $GITHUB_TOKEN
   keep_history: true
-  verbose: true
   on:
     branch: master
