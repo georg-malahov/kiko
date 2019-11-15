@@ -17,9 +17,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "CI=true react-scripts test --env=jsdom",
-    "cy:run": "cypress run",
-    "cy:ci:test": "start-server-and-test start http-get://localhost:3000 cy:run --record --key 75a6dcf1-c9e8-4caf-81de-643915f11823",
+    "cy:run": "cypress run --record --key 75a6dcf1-c9e8-4caf-81de-643915f11823",
+    "cy:ci:test": "start-server-and-test start http-get://localhost:3000 cy:run",
     "test:coverage": "npm test -- --coverage",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -36,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "2.1.1"
   }
 }
