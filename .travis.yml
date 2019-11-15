@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-  - "stable"
+  - stable
 cache:
   directories:
     - node_modules
-    - .cache/Cypress
+    - ".cache/Cypress"
 script:
   - npm test
   - npm run test:coverage
@@ -13,7 +13,10 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  github_token: "$GITHUB_TOKEN"
   local_dir: build
   on:
     branch: master
+env:
+  global:
+    secure: ZSuY+0fntay42gnG7M25A0HVQmkZBpxWbo6zg1c+T7qZKKTduNE04ouZlEJ0zAcPBB665UTAFS6VPSm8Ypc4Xm3OecbIOT4+eRNieyUnmXm9R3RPn7nvYLXA7Z51N+3rkvxdfXf5YwoxeBY8UuTKQmhrr/CRh8IYplfnwwmI/Gq11vkUx5kKjlyb2RXSWp6OmGDVhhe+K5qejeCn4NNpih8NFgjuWpX5OmjCDwEWBcKj2crdHcFk6Fvp2lRXOyPfXMB+b6OBE0mWQfj/XRRAOb6FATyjtkSoaosKxya0AZMYD07Shs2pV5xGDhoXg4rkRoTS4a0FBenv34CmmiI0xRPgmNkqVXfu6/7wlmqmSikT3sk2pJHm4ZblZw1HVUgf5hzNL79IpOnNAPENLSqSJ+etyMeEPawuFmApD8SuATzhfd0IbYWflwiKwPAFw6QusNFvE/4ZPj0aEqWKnoaE5haAICQiaUxL45TVrhieJk6+LuxU9VgiTF1Cvy8LZOB079KDfTV4ufbd4OeQ27B0O5qyHh6KoeqOFRdOXbgKQEaVnnP9EcyJJMAD4C/xcsE7q5Tn69PtrLrHbnja/0KJlW4REHz1A797/13imRqi2ql+WAzGZ1UGIU1NVGTrTGhKQMoaLZo5EH31DD1uAcEkg6aXtWCZzIJQrsQHSZ5f6x8=
