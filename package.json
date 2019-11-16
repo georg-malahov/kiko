@@ -13,7 +13,7 @@
     "precy:ci:test": "cypress install",
     "cy:ci:test": "start-server-and-test serve http-get://localhost:3000 cy:run",
     "test:coverage": "npm test -- --coverage",
-    "deploy": "./node_modules/.bin/deploy-to-gh-pages --repo yuriMalakhov/kiko ./build",
+    "deploy": "deploy-to-gh-pages --repo yuriMalakhov/kiko ./build",
     "eject": "react-scripts eject"
   },
   "dependencies": {
