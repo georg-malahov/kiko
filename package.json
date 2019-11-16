@@ -27,6 +27,9 @@
     "cypress": "3.6.1",
     "deploy-to-gh-pages": "1.3.7",
     "http-server": "0.11.1",
+    "husky": "3.0.9",
+    "lint-staged": "9.4.3",
+    "prettier": "1.19.1",
     "start-server-and-test": "1.10.6"
   },
   "eslintConfig": {
@@ -48,6 +51,17 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/serviceWorker.js"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
     ]
   }
 }
