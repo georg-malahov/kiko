@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/yuriMalakhov/kiko.svg?branch=master)](https://travis-ci.com/yuriMalakhov/kiko)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
