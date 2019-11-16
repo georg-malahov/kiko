@@ -5,9 +5,15 @@ cache:
   directories:
     - node_modules
     - ".cache/Cypress"
-script:
-  - npm test
-  - npm run test:coverage
-  - npm run build
-  - npm run cy:ci:test
-  - npm run deploy
+jobs:
+  include:
+    - stage: unit tests
+      script: yart test
+      script: yart test:coverage
+    - stage: build
+      script: yarn build
+    - stage: e2e tests
+      script: yarn cy:ci:test
+    - stage: deploy to gh-pages
+      script: yarn deploy
+      if: branch = master
