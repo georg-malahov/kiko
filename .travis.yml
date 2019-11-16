@@ -9,7 +9,9 @@ jobs:
   include:
     - stage: unit tests
       script: yarn test
-    - script: yarn test:coverage
+    - # stage name not required, will continue to use `unit tests`
+      install: skip
+      script: yarn test:coverage
     
     - stage: build
       install: skip
