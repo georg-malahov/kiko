@@ -12,6 +12,6 @@ script:
   - yarn cy:ci:test
 deploy:
   provider: script
-  script: npx deploy-to-gh-pages --repo yuriMalakhov/kiko ./build
+  script: yarn deploy
   on:
     branch: master
