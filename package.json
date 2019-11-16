@@ -13,7 +13,6 @@
     "precy:ci:test": "cypress install",
     "cy:ci:test": "start-server-and-test serve http-get://localhost:3000 cy:run",
     "test:coverage": "npm test -- --coverage",
-    "deploy": "deploy-to-gh-pages --repo yuriMalakhov/kiko ./build",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -35,7 +34,6 @@
   },
   "devDependencies": {
     "cypress": "3.6.1",
-    "deploy-to-gh-pages": "1.3.7",
     "http-server": "0.11.1",
     "husky": "3.0.9",
     "lint-staged": "9.4.3",
