@@ -8,8 +8,8 @@ cache:
 jobs:
   include:
     - stage: unit tests
-      script: yart test
-      script: yart test:coverage
+      script: yarn test
+      script: yarn test:coverage
     - stage: build
       script: yarn build
     - stage: e2e tests
