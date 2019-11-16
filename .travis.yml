@@ -5,23 +5,13 @@ cache:
   directories:
     - node_modules
     - ".cache/Cypress"
-jobs:
-  include:
-    - stage: unit tests
-      script: yarn test
-    - # stage name not required, will continue to use `unit tests`
-      install: skip
-      script: yarn test:coverage
-    
-    - stage: build
-      install: skip
-      script: yarn build
-    
-    - stage: e2e tests
-      install: skip
-      script: yarn cy:ci:test
-    
-    - stage: deploy to gh-pages
-      install: skip
-      script: yarn deploy
-      if: branch = master
+script:
+  - yarn test
+  - yarn test:coverage
+  - yarn build
+  - yarn cy:ci:test
+deploy:
+  provider: script
+  script: yarn deploy
+  on:
+    branch: master
