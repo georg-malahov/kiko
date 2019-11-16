@@ -1,9 +1,9 @@
-describe("Index page", function() {
+describe('Index page', function() {
   before(function() {
-    cy.visit("/");
+    cy.visit('/');
   });
 
-  it("should be default React Starter Kit page", function() {
-    cy.contains("Learn React");
+  it('should have Mapbox loaded', function() {
+    cy.contains('Mapbox');
   });
 });
