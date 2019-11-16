@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 describe("Index page", function() {
   before(function() {
     cy.visit("/");
