@@ -17,6 +17,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@foursquare/foursquare-places": "1.0.2",
     "@types/jest": "24.0.23",
     "@types/mapbox-gl": "1.5.2",
     "@types/node": "12.12.8",
@@ -31,6 +32,7 @@
     "react-scripts": "^3.2.0",
     "set-value": "^2.0.1",
     "styled-components": "4.4.1",
+    "ts-foursquare": "0.4.8",
     "typescript": "3.7.2"
   },
   "devDependencies": {
@@ -43,19 +45,34 @@
     "start-server-and-test": "1.10.6"
   },
   "eslintConfig": {
-    "extends": ["react-app"],
+    "extends": [
+      "react-app"
+    ],
     "overrides": [
       {
-        "files": ["**/*.ts?(x)"]
+        "files": [
+          "**/*.ts?(x)"
+        ]
       }
     ]
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}", "!src/serviceWorker.js"]
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/serviceWorker.js"
+    ]
   },
   "husky": {
     "hooks": {
@@ -63,6 +80,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": ["prettier --write", "git add"]
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
