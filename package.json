@@ -46,34 +46,23 @@
     "start-server-and-test": "1.10.6"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ],
+    "extends": ["react-app"],
     "overrides": [
       {
-        "files": [
-          "**/*.ts?(x)"
-        ]
+        "files": ["**/*.ts?(x)"]
       }
     ]
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/serviceWorker.js"
-    ]
+    "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}", "!src/serviceWorker.js"],
+    "transform": {
+      "^.+\\.(js|jsx)?$": "babel-jest"
+    },
+    "transformIgnorePatterns": ["/node_modules/(?!@foursquare).+\\.js$"]
   },
   "husky": {
     "hooks": {
@@ -81,9 +70,6 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": ["prettier --write", "git add"]
   }
 }
