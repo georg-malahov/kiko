@@ -3,7 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { MapboxContainer, MapboxMap } from './Mapbox.styled';
 import { MAPBOX_ACCESS_TOKEN } from '../../constants';
 import { VenuesContext } from '../Venues/VenuesContext';
-import MapboxZoomend from '../MapboxZoomed/MapboxZoomed';
+import MapboxEvents from '../MapboxEvents/MapboxEvents';
 import MapboxDraw from '../MapboxDraw/MapboxDraw';
 
 const Mapbox = () => {
@@ -25,7 +25,7 @@ const Mapbox = () => {
   return (
     <MapboxContainer>
       <MapboxMap id="map" />
-      <MapboxZoomend />
+      <MapboxEvents />
       <MapboxDraw />
     </MapboxContainer>
   );

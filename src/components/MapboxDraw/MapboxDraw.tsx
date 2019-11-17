@@ -3,7 +3,7 @@ import { VenuesContext } from '../Venues/VenuesContext';
 
 const MapboxDraw = () => {
   const { map, venues } = React.useContext(VenuesContext);
-  if (!map) {
+  if (Object.keys(map).length === 0) {
     return null;
   }
 
@@ -43,6 +43,7 @@ const MapboxDraw = () => {
 
   const existingSource = map.getSource('venues') as mapboxgl.GeoJSONSource;
   if (existingSource) {
+    console.log('data', data);
     existingSource.setData(data);
   }
 
