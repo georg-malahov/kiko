@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@foursquare/foursquare-places": "1.0.2",
+    "@turf/turf": "5.1.6",
     "@types/jest": "24.0.23",
     "@types/mapbox-gl": "1.5.2",
     "@types/node": "12.12.8",

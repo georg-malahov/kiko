@@ -4,6 +4,7 @@ import { MapboxContainer, MapboxMap } from './Mapbox.styled';
 import { MAPBOX_ACCESS_TOKEN } from '../../constants';
 import { VenuesContext } from '../Venues/VenuesContext';
 import MapboxZoomend from '../MapboxZoomed/MapboxZoomed';
+import MapboxDraw from '../MapboxDraw/MapboxDraw';
 
 const Mapbox = () => {
   const { setMap } = React.useContext(VenuesContext);
@@ -25,6 +26,7 @@ const Mapbox = () => {
     <MapboxContainer>
       <MapboxMap id="map" />
       <MapboxZoomend />
+      <MapboxDraw />
     </MapboxContainer>
   );
 };

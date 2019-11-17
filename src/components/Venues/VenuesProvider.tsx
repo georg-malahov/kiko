@@ -15,15 +15,15 @@ const VenuesProvider = ({ children }: { children: React.ReactNode }) => {
     (e: mapboxgl.MapBoxZoomEvent) => {
       console.log('map.getZoom()', map.getZoom());
       const { lng, lat } = map.getCenter();
+      // TODO: add radius param
+      // @see https://github.com/alex3165/react-mapbox-gl/issues/426
+      // @see http://turfjs.org/getting-started
       const { payload } = getVenuesSearchAsync.request({
         ll: `${lat},${lng}`,
       });
-      // const response = adaptGetVenuesSearch(payload);
       console.log('payload', payload);
-      // console.log('response', response);
       foursquare.venues.getVenues(payload).then(({ response }: { response: NVenue.IResponse }) => {
         const venues = response.venues;
-        console.log('venues', venues);
         setVenues(venues);
       });
     },
