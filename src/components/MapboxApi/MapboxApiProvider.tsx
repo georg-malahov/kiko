@@ -1,18 +1,28 @@
 import React from 'react';
-import { VenuesContext } from './VenuesContext';
+import { MapboxApiContext } from './MapboxApiContext';
 import { getVenuesSearchAsync } from 'ts-foursquare';
 import Foursquare from '@foursquare/foursquare-places';
-import { FOURSQUARE_CLIENT_SECRET, FOURSQUARE_CLIENT_ID } from '../../constants';
+import { FOURSQUARE_CLIENT_SECRET, FOURSQUARE_CLIENT_ID, MAPBOX_ACCESS_TOKEN } from '../../constants';
 import { NVenue } from 'ts-foursquare/types';
 import { distance } from '@turf/turf';
 
 const foursquare = new Foursquare(FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET);
 
-const VenuesProvider = ({ children }: { children: React.ReactNode }) => {
-  const [venues, setVenues] = React.useState([] as NVenue.IVenue[]);
-  const [map, setMap] = React.useState({} as mapboxgl.Map);
-  const [popup, setPopup] = React.useState({} as mapboxgl.Popup);
+const MapboxApiProvider = ({ children, mapboxgl }: { children: React.ReactNode; mapboxgl: any }) => {
+  const map = React.useMemo(
+    () =>
+      new mapboxgl.Map({
+        accessToken: MAPBOX_ACCESS_TOKEN,
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-0.118092, 51.509865],
+        zoom: 9,
+      } as mapboxgl.MapboxOptions),
+    [mapboxgl.Map]
+  );
+  const popup = React.useMemo(() => new mapboxgl.Popup({ closeButton: false }), [mapboxgl.Popup]);
 
+  const [venues, setVenues] = React.useState([] as NVenue.IVenue[]);
   const updateVenues = React.useCallback(
     (e: mapboxgl.MapBoxZoomEvent) => {
       const { lng, lat } = map.getCenter();
@@ -37,18 +47,16 @@ const VenuesProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   return (
-    <VenuesContext.Provider
+    <MapboxApiContext.Provider
       value={{
         venues,
         updateVenues,
         map,
-        setMap,
         popup,
-        setPopup,
       }}>
       {children}
-    </VenuesContext.Provider>
+    </MapboxApiContext.Provider>
   );
 };
 
-export default VenuesProvider;
+export default MapboxApiProvider;

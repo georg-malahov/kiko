@@ -1,11 +1,6 @@
 import React from 'react';
 import Mapbox from './components/Mapbox/Mapbox';
-import VenuesProvider from './components/Venues/VenuesProvider';
 
-const App = () => (
-  <VenuesProvider>
-    <Mapbox />
-  </VenuesProvider>
-);
+const App = () => <Mapbox />;
 
 export default App;

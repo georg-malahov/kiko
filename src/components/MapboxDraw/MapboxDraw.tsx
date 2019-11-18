@@ -1,14 +1,11 @@
 import React from 'react';
-import { VenuesContext } from '../Venues/VenuesContext';
+import { MapboxApiContext } from '../MapboxApi/MapboxApiContext';
 import { FeatureCollection } from 'geojson';
 
 const MapboxDraw = () => {
-  const { map, popup, venues } = React.useContext(VenuesContext);
+  const { map, popup, venues } = React.useContext(MapboxApiContext);
 
   React.useEffect(() => {
-    if (Object.keys(map).length === 0 || Object.keys(popup).length === 0) {
-      return;
-    }
     map.on('load', () => {
       map.addSource('venues', {
         type: 'geojson',
@@ -122,10 +119,6 @@ const MapboxDraw = () => {
       },
     })),
   };
-
-  if (Object.keys(map).length === 0) {
-    return null;
-  }
 
   const existingSource = map.getSource('venues') as mapboxgl.GeoJSONSource;
   if (existingSource) {

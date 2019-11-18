@@ -1,12 +1,9 @@
 import React from 'react';
-import { VenuesContext } from '../Venues/VenuesContext';
+import { MapboxApiContext } from '../MapboxApi/MapboxApiContext';
 
 const MapboxEvents = () => {
-  const { map, updateVenues } = React.useContext(VenuesContext);
+  const { map, updateVenues } = React.useContext(MapboxApiContext);
   React.useEffect(() => {
-    if (Object.keys(map).length === 0) {
-      return;
-    }
     map.on('load', updateVenues);
     map.on('zoomend', updateVenues);
     map.on('dragend', updateVenues);
