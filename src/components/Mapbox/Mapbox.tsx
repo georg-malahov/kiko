@@ -1,34 +1,20 @@
 import React from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MapboxContainer, MapboxMap } from './Mapbox.styled';
-import { MAPBOX_ACCESS_TOKEN } from '../../constants';
-import { VenuesContext } from '../Venues/VenuesContext';
-import MapboxEvents from '../MapboxEvents/MapboxEvents';
-import MapboxDraw from '../MapboxDraw/MapboxDraw';
+import MapboxApi from '../MapboxApi/MapboxApi';
 
 const Mapbox = () => {
-  const { setMap, setPopup } = React.useContext(VenuesContext);
+  const [mounted, setMounted] = React.useState(false);
+  const [mapboxgl, setMapboxgl] = React.useState();
   React.useEffect(() => {
-    import('mapbox-gl').then((mapboxgl) => {
-      const mapboxOptions = {
-        accessToken: MAPBOX_ACCESS_TOKEN,
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-0.118092, 51.509865],
-        zoom: 9,
-      } as mapboxgl.MapboxOptions;
-      const map: mapboxgl.Map = new mapboxgl.Map(mapboxOptions);
-      const popup: mapboxgl.Popup = new mapboxgl.Popup();
-      setMap(map);
-      setPopup(popup);
-    });
-  }, [setMap, setPopup]);
-
+    import('mapbox-gl')
+      .then(setMapboxgl)
+      .then(() => setMounted(true));
+  }, []);
   return (
     <MapboxContainer>
       <MapboxMap id="map" />
-      <MapboxEvents />
-      <MapboxDraw />
+      {mounted ? <MapboxApi mapboxgl={mapboxgl} /> : null}
     </MapboxContainer>
   );
 };
