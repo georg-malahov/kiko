@@ -7,7 +7,7 @@ export const MapboxContainer = styled.div`
 `;
 
 export const MapboxMap = styled.div`
-  position: absolute;
+  position: absolute !important;
   top: 0;
   bottom: 0;
   width: 100%;
