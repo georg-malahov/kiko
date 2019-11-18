@@ -6,6 +6,8 @@ type VenuesContext = {
   venues: NVenue.IVenue[];
   map: mapboxgl.Map;
   setMap: (map: mapboxgl.Map) => void;
+  popup: mapboxgl.Popup;
+  setPopup: (popup: mapboxgl.Popup) => void;
 };
 
 export const VenuesContext = React.createContext({} as VenuesContext);

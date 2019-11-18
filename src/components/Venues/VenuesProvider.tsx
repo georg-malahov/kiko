@@ -11,10 +11,12 @@ const foursquare = new Foursquare(FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET
 const VenuesProvider = ({ children }: { children: React.ReactNode }) => {
   const [venues, setVenues] = React.useState([] as NVenue.IVenue[]);
   const [map, setMap] = React.useState({} as mapboxgl.Map);
+  const [popup, setPopup] = React.useState({} as mapboxgl.Popup);
 
   const updateVenues = React.useCallback(
     (e: mapboxgl.MapBoxZoomEvent) => {
       const { lng, lat } = map.getCenter();
+      console.log('zoom', map.getZoom());
       const sw = map.getBounds().getSouthWest();
       const nw = map.getBounds().getNorthWest();
       const radius = Math.floor(distance([sw.lng, sw.lat], [nw.lng, nw.lat], { units: 'meters' }) / 2);
@@ -41,6 +43,8 @@ const VenuesProvider = ({ children }: { children: React.ReactNode }) => {
         updateVenues,
         map,
         setMap,
+        popup,
+        setPopup,
       }}>
       {children}
     </VenuesContext.Provider>

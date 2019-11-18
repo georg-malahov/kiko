@@ -7,7 +7,7 @@ import MapboxEvents from '../MapboxEvents/MapboxEvents';
 import MapboxDraw from '../MapboxDraw/MapboxDraw';
 
 const Mapbox = () => {
-  const { setMap } = React.useContext(VenuesContext);
+  const { setMap, setPopup } = React.useContext(VenuesContext);
   React.useEffect(() => {
     import('mapbox-gl').then((mapboxgl) => {
       const mapboxOptions = {
@@ -18,9 +18,11 @@ const Mapbox = () => {
         zoom: 9,
       } as mapboxgl.MapboxOptions;
       const map: mapboxgl.Map = new mapboxgl.Map(mapboxOptions);
+      const popup: mapboxgl.Popup = new mapboxgl.Popup();
       setMap(map);
+      setPopup(popup);
     });
-  }, [setMap]);
+  }, [setMap, setPopup]);
 
   return (
     <MapboxContainer>
