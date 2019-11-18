@@ -83,7 +83,8 @@ const MapboxDraw = () => {
       });
       // When a click event occurs on a feature in the places layer, open a popup at the
       // location of the feature, with description HTML from its properties.
-      map.on('click', 'unclustered-point', function(e: any) {
+      map.on('mouseenter', 'unclustered-point', function(e: any) {
+        map.getCanvas().style.cursor = 'pointer';
         var coordinates = e.features[0].geometry.coordinates.slice();
         var description = e.features[0].properties.title;
 
@@ -100,14 +101,10 @@ const MapboxDraw = () => {
           .addTo(map);
       });
 
-      // Change the cursor to a pointer when the mouse is over the places layer.
-      map.on('mouseenter', 'unclustered-point', function() {
-        map.getCanvas().style.cursor = 'pointer';
-      });
-
       // Change it back to a pointer when it leaves.
       map.on('mouseleave', 'unclustered-point', function() {
         map.getCanvas().style.cursor = '';
+        popup.remove();
       });
     });
   }, [map, popup]);
