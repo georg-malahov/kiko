@@ -6,6 +6,7 @@ import MapboxApi from '../MapboxApi/MapboxApi';
 const Mapbox = () => {
   const [mounted, setMounted] = React.useState(false);
   const [mapboxgl, setMapboxgl] = React.useState();
+  const mapRef = React.useRef<HTMLDivElement>(null!);
   React.useEffect(() => {
     import('mapbox-gl')
       .then(setMapboxgl)
@@ -13,8 +14,8 @@ const Mapbox = () => {
   }, []);
   return (
     <MapboxContainer>
-      <MapboxMap id="map" />
-      {mounted ? <MapboxApi mapboxgl={mapboxgl} /> : null}
+      <MapboxMap id="map" ref={mapRef} />
+      {mounted ? <MapboxApi mapboxgl={mapboxgl} mapRef={mapRef} /> : null}
     </MapboxContainer>
   );
 };
