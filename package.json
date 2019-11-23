@@ -48,9 +48,11 @@
   },
   "eslintConfig": {
     "extends": ["react-app"],
+    "rules": {},
     "overrides": [
       {
-        "files": ["**/*.ts?(x)"]
+        "files": ["**/*.ts?(x)"],
+        "rules": {}
       }
     ]
   },
