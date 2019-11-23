@@ -1,6 +1,7 @@
 import React from 'react';
 import { NVenue } from 'ts-foursquare/types';
-import { MapboxEvents } from '../MapboxEvents/MapboxEvents';
+
+export type MapboxEvents = mapboxgl.MapboxEvent | mapboxgl.MapBoxZoomEvent | mapboxgl.MapMouseEvent;
 
 type MapboxApiContext = {
   updateVenues: (e: MapboxEvents) => void;

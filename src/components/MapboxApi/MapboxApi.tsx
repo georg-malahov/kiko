@@ -1,13 +1,15 @@
 import React from 'react';
-import MapboxEvents from '../MapboxEvents/MapboxEvents';
-import MapboxDraw from '../MapboxDraw/MapboxDraw';
+import MapboxPopup from '../MapboxPopup/MapboxPopup';
 import MapboxApiProvider from './MapboxApiProvider';
+import MapboxSource from '../MapboxSource/MapboxSource';
+import MapboxCluster from '../MapboxCluster/MapboxCluster';
 
 const MapboxApi = ({ mapboxgl, mapRef }: any) => {
   return (
-    <MapboxApiProvider mapboxgl={mapboxgl}>
-      <MapboxEvents mapRef={mapRef} />
-      <MapboxDraw />
+    <MapboxApiProvider mapboxgl={mapboxgl} mapRef={mapRef}>
+      <MapboxSource />
+      <MapboxCluster />
+      <MapboxPopup />
     </MapboxApiProvider>
   );
 };
