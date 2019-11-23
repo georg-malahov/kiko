@@ -5,6 +5,7 @@ import Foursquare from '@foursquare/foursquare-places';
 import { FOURSQUARE_CLIENT_SECRET, FOURSQUARE_CLIENT_ID, MAPBOX_ACCESS_TOKEN } from '../../constants';
 import { NVenue } from 'ts-foursquare/types';
 import { distance } from '@turf/turf';
+import { MapboxEvents } from '../MapboxEvents/MapboxEvents';
 
 const foursquare = new Foursquare(FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET);
 
@@ -24,7 +25,7 @@ const MapboxApiProvider = ({ children, mapboxgl }: { children: React.ReactNode; 
 
   const [venues, setVenues] = React.useState([] as NVenue.IVenue[]);
   const updateVenues = React.useCallback(
-    (e: mapboxgl.MapBoxZoomEvent) => {
+    (e: MapboxEvents) => {
       const { lng, lat } = map.getCenter();
       console.log('zoom', map.getZoom());
       const sw = map.getBounds().getSouthWest();

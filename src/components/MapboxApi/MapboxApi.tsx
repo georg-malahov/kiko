@@ -3,10 +3,10 @@ import MapboxEvents from '../MapboxEvents/MapboxEvents';
 import MapboxDraw from '../MapboxDraw/MapboxDraw';
 import MapboxApiProvider from './MapboxApiProvider';
 
-const MapboxApi = ({ mapboxgl }: any) => {
+const MapboxApi = ({ mapboxgl, mapRef }: any) => {
   return (
     <MapboxApiProvider mapboxgl={mapboxgl}>
-      <MapboxEvents />
+      <MapboxEvents mapRef={mapRef} />
       <MapboxDraw />
     </MapboxApiProvider>
   );
