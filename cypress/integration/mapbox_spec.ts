@@ -6,7 +6,7 @@ describe('Mapbox', function() {
   });
 
   it('should be loaded', function() {
-    cy.contains('Mapbox');
+    cy.contains('Mapbox!!!');
   });
 
   it('should request venues on load', function() {
